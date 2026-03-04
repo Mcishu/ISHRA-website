@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISHRA — In Ishq with Ishra | Ethnic Wear by Ishika & Shruti</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&family=Noto+Serif+Devanagari:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & ROOT ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --red:        #9b1c1c;
+  --red-deep:   #6b0f0f;
+  --red-rich:   #7a1414;
+  --red-bright: #c0392b;
+  --red-pale:   #fdf0f0;
+  --red-blush:  #f8e8e8;
+  --cream:      #fdfaf4;
+  --cream-deep: #f5ead8;
+  --cream-dark: #e8d8c0;
+  --cream-mid:  #f0e4cc;
+  --gold:       #c9922a;
+  --gold-light: #e8b84b;
+  --gold-pale:  #fdf3d8;
+  --text:       #1a0808;
+  --text-mid:   #3a1818;
+  --muted:      #9a7070;
+  --border:     #e8d0c8;
+  --white:      #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── CUSTOM CURSOR ── */
+.cursor {
+  width: 10px; height: 10px;
+  background: var(--red);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease, width 0.2s, height 0.2s;
+  transform: translate(-50%, -50%);
+}
+.cursor-ring {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(155,28,28,0.4);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.4s ease, width 0.3s, height 0.3s, border-color 0.3s;
+  transform: translate(-50%, -50%);
+}
+body:hover .cursor { opacity: 1; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.4s;
+}
+nav.scrolled {
+  background: rgba(253,250,244,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 48px;
+  box-shadow: 0 4px 30px rgba(155,28,28,0.06);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 8px;
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.4s;
+}
+nav.scrolled .nav-logo { color: var(--red); }
+.nav-logo span { color: var(--cream-dark); }
+nav.scrolled .nav-logo span { color: var(--gold); }
+
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(253,250,244,0.7);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 400;
+}
+nav.scrolled .nav-links a { color: var(--muted); }
+.nav-links a:hover { color: var(--gold) !important; }
+.nav-cta {
+  background: var(--cream) !important;
+  color: var(--red) !important;
+  padding: 9px 22px !important;
+  border-radius: 30px;
+  font-weight: 500 !important;
+  letter-spacing: 2px !important;
+  transition: all 0.3s !important;
+}
+nav.scrolled .nav-cta {
+  background: var(--red) !important;
+  color: white !important;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(155,28,28,0.3) !important; }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 1px; background: var(--cream); transition: all 0.3s; }
+nav.scrolled .hamburger span { background: var(--red); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--red-deep) 0%, var(--red) 40%, #a52020 70%, var(--red-deep) 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 30px 80px;
+}
+
+/* Floating orbs */
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,146,42,0.12) 0%, transparent 70%);
+  top: -100px; left: -100px;
+  animation: float1 8s ease-in-out infinite;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(253,250,244,0.06) 0%, transparent 70%);
+  bottom: -50px; right: -50px;
+  animation: float2 10s ease-in-out infinite;
+}
+
+@keyframes float1 { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(40px, 30px) scale(1.1); } }
+@keyframes float2 { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(-30px, -20px); } }
+
+/* Grain overlay */
+.hero-grain {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.hero-content { position: relative; z-index: 2; }
+
+.hero-eyebrow {
+  font-size: 9px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  color: rgba(253,250,244,0.4);
+  margin-bottom: 24px;
+  animation: fadeUp 1s ease 0.2s both;
+}
+
+.hero-hindi {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: clamp(18px, 4vw, 26px);
+  color: rgba(253,250,244,0.35);
+  margin-bottom: 8px;
+  letter-spacing: 4px;
+  animation: fadeUp 1s ease 0.3s both;
+}
+
+.hero-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(80px, 18vw, 160px);
+  font-weight: 300;
+  letter-spacing: 24px;
+  color: var(--cream);
+  line-height: 0.9;
+  animation: fadeUp 1s ease 0.4s both;
+}
+.hero-logo .accent { color: var(--cream-dark); }
+
+.hero-rule {
+  display: flex; align-items: center; gap: 18px;
+  margin: 22px auto;
+  width: 320px;
+  animation: fadeUp 1s ease 0.5s both;
+}
+.hr-line { flex: 1; height: 1px; background: rgba(253,250,244,0.2); }
+.hr-diamond { width: 6px; height: 6px; border: 1px solid rgba(253,250,244,0.4); transform: rotate(45deg); }
+
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(18px, 4vw, 28px);
+  color: rgba(253,250,244,0.65);
+  letter-spacing: 3px;
+  animation: fadeUp 1s ease 0.6s both;
+}
+
+.hero-sub {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(253,250,244,0.35);
+  margin-top: 12px;
+  animation: fadeUp 1s ease 0.7s both;
+}
+
+.hero-btns {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  margin-top: 44px;
+  animation: fadeUp 1s ease 0.8s both;
+}
+.btn-primary {
+  background: var(--cream);
+  color: var(--red-deep);
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: none; cursor: pointer;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.25); background: white; }
+.btn-outline {
+  background: transparent;
+  color: rgba(253,250,244,0.8);
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-decoration: none;
+  border: 1px solid rgba(253,250,244,0.3);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.btn-outline:hover { border-color: rgba(253,250,244,0.8); color: white; transform: translateY(-3px); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 36px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  animation: fadeUp 1s ease 1s both;
+  z-index: 2;
+}
+.scroll-text { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: rgba(253,250,244,0.3); }
+.scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, rgba(253,250,244,0.3), transparent); animation: scrollLine 2s ease infinite; }
+@keyframes scrollLine { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── MARQUEE ── */
+.marquee-wrap {
+  background: var(--red);
+  padding: 14px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(253,250,244,0.1);
+  border-bottom: 1px solid rgba(253,250,244,0.1);
+}
+.marquee-track {
+  display: flex;
+  gap: 0;
+  animation: marquee 20s linear infinite;
+  width: max-content;
+}
+.marquee-item {
+  display: flex; align-items: center; gap: 24px;
+  padding: 0 30px;
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(253,250,244,0.7);
+  white-space: nowrap;
+  font-weight: 400;
+}
+.marquee-gem { width: 4px; height: 4px; background: var(--gold); transform: rotate(45deg); opacity: 0.7; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── SECTIONS ── */
+section { padding: 100px 48px; }
+.container { max-width: 1100px; margin: 0 auto; }
+
+.section-eyebrow {
+  font-size: 9px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.section-title em { font-style: italic; color: var(--red); }
+.section-title span { color: var(--gold); }
+
+/* ── ABOUT / STORY ── */
+.about { background: var(--cream); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-text { }
+.about-body {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 2.1;
+  margin-bottom: 28px;
+}
+.about-body strong { color: var(--text); font-weight: 500; }
+.about-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-top: 36px; }
+.stat { padding: 24px 20px; text-align: center; border-right: 1px solid var(--border); }
+.stat:last-child { border-right: none; }
+.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--red); display: block; line-height: 1; }
+.stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+
+.about-visual {
+  position: relative;
+}
+.about-card-main {
+  background: linear-gradient(145deg, var(--red-deep), var(--red));
+  border-radius: 24px;
+  padding: 52px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.about-card-main::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(201,146,42,0.15) 0%, transparent 60%);
+}
+.acm-hindi {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 72px;
+  font-weight: 600;
+  color: rgba(253,250,244,0.15);
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+.acm-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: 12px;
+  color: var(--cream);
+  position: relative; z-index: 1;
+  line-height: 1;
+}
+.acm-logo span { color: var(--cream-dark); }
+.acm-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: rgba(253,250,244,0.5);
+  margin-top: 12px;
+  letter-spacing: 2px;
+  position: relative; z-index: 1;
+}
+.about-card-float {
+  position: absolute;
+  bottom: -20px; right: -20px;
+  background: var(--gold-pale);
+  border: 1px solid var(--cream-dark);
+  border-radius: 16px;
+  padding: 18px 22px;
+  box-shadow: 0 8px 32px rgba(155,28,28,0.1);
+}
+.acf-text { font-size: 12px; color: var(--text-mid); font-style: italic; font-family: 'Cormorant Garamond', serif; }
+.acf-name { font-size: 10px; color: var(--muted); margin-top: 4px; letter-spacing: 2px; text-transform: uppercase; }
+
+/* ── COLLECTIONS ── */
+.collections { background: var(--red-blush); }
+.collections-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 52px; }
+.coll-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: white;
+  transition: all 0.4s;
+  cursor: pointer;
+  group: true;
+}
+.coll-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(155,28,28,0.15); }
+.coll-visual {
+  height: 220px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+.coll-visual::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.2) 100%);
+}
+.cv1 { background: linear-gradient(135deg, var(--red-deep), var(--red)); color: var(--cream); }
+.cv2 { background: linear-gradient(135deg, #3a0808, #6b1010); color: var(--cream-deep); }
+.cv3 { background: linear-gradient(135deg, var(--cream-deep), var(--cream-dark)); color: var(--red-deep); }
+.cv4 { background: linear-gradient(135deg, var(--red), #c0392b); color: var(--cream); }
+.cv5 { background: linear-gradient(135deg, #2a1010, var(--red-deep)); color: var(--cream-mid); }
+.cv6 { background: linear-gradient(135deg, var(--cream), var(--cream-deep)); color: var(--red); border: 1px solid var(--border); }
+.coll-icon { font-size: 44px; position: relative; z-index: 1; }
+.coll-badge {
+  position: absolute; top: 14px; right: 14px;
+  background: var(--gold);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  z-index: 2;
+}
+.coll-info { padding: 20px; }
+.coll-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+.coll-desc { font-size: 12px; color: var(--muted); line-height: 1.7; margin-bottom: 14px; }
+.coll-price {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.price { font-size: 16px; font-weight: 500; color: var(--red); }
+.coll-btn {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  display: flex; align-items: center; gap: 6px;
+  font-weight: 500;
+  transition: gap 0.2s;
+}
+.coll-card:hover .coll-btn { gap: 10px; }
+
+/* ── HOW TO ORDER ── */
+.order { background: var(--cream); }
+.order-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 52px; }
+.order-steps { display: flex; flex-direction: column; gap: 0; }
+.order-step {
+  display: flex; gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s;
+}
+.order-step:last-child { border-bottom: none; }
+.order-step:hover { padding-left: 8px; }
+.os-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--cream-dark);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 50px;
+  transition: color 0.3s;
+}
+.order-step:hover .os-num { color: var(--red); }
+.os-content { padding-top: 8px; }
+.os-title { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+.os-desc { font-size: 13px; color: var(--muted); line-height: 1.8; }
+
+.order-visual {
+  background: linear-gradient(145deg, var(--red-deep), var(--red));
+  border-radius: 24px;
+  padding: 44px 36px;
+  position: relative;
+  overflow: hidden;
+}
+.order-visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(201,146,42,0.15) 0%, transparent 55%);
+}
+.ov-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 24px;
+  position: relative; z-index: 1;
+}
+.ov-details { display: flex; flex-direction: column; gap: 16px; position: relative; z-index: 1; }
+.ov-detail { display: flex; align-items: flex-start; gap: 14px; }
+.ovd-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+.ovd-text { font-size: 13px; color: rgba(253,250,244,0.75); line-height: 1.7; }
+.ovd-text strong { color: var(--cream); font-weight: 500; }
+.order-cta-btn {
+  display: block;
+  background: var(--cream);
+  color: var(--red-deep);
+  text-align: center;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 28px;
+  transition: all 0.3s;
+  position: relative; z-index: 1;
+}
+.order-cta-btn:hover { background: white; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+/* ── FOUNDERS ── */
+.founders { background: var(--red-blush); }
+.founders-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 52px; }
+.founder-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+.founder-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(155,28,28,0.1); }
+.fc-top {
+  height: 200px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.fc1-top { background: linear-gradient(145deg, var(--red-deep), var(--red)); }
+.fc2-top { background: linear-gradient(145deg, #3a0808, #7a1414); }
+.fc-avatar {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: rgba(253,250,244,0.15);
+  border: 2px solid rgba(253,250,244,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+.fc-fname { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--cream); letter-spacing: 4px; }
+.fc-role { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: rgba(253,250,244,0.45); margin-top: 4px; }
+.fc-body { padding: 26px; }
+.fc-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--red);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.fc-text { font-size: 13px; color: var(--muted); line-height: 1.9; }
+
+/* ── INSTAGRAM ── */
+.instagram { background: var(--cream); text-align: center; }
+.ig-handle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 300;
+  color: var(--red);
+  letter-spacing: 4px;
+  margin: 16px 0 8px;
+  font-style: italic;
+}
+.ig-follow-text { font-size: 13px; color: var(--muted); margin-bottom: 44px; }
+.ig-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; margin-bottom: 36px; border-radius: 16px; overflow: hidden; }
+.ig-post {
+  aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 12px;
+  text-align: center;
+  padding: 8px;
+  font-weight: 600;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.ig-post:hover { transform: scale(0.96); }
+.ig1 { background: linear-gradient(135deg, var(--red-deep), var(--red)); color: var(--cream); }
+.ig2 { background: var(--cream-deep); color: var(--red-deep); }
+.ig3 { background: #2a0808; color: var(--cream-dark); }
+.ig4 { background: var(--red-pale); color: var(--red-deep); }
+.ig5 { background: linear-gradient(135deg, var(--red), #b52020); color: var(--cream); }
+.ig6 { background: var(--cream-dark); color: var(--red-deep); }
+.ig-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--red);
+  color: white;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.ig-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(155,28,28,0.3); background: var(--red-deep); }
+
+/* ── TESTIMONIALS ── */
+.testimonials { background: var(--red-deep); padding: 100px 48px; }
+.testimonials .section-title { color: var(--cream); }
+.testimonials .section-eyebrow { color: var(--gold); }
+.testimonials .section-eyebrow::before { background: var(--gold); }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 52px; }
+.testi {
+  background: rgba(253,250,244,0.06);
+  border: 1px solid rgba(253,250,244,0.1);
+  border-radius: 20px;
+  padding: 28px;
+  transition: all 0.3s;
+}
+.testi:hover { background: rgba(253,250,244,0.1); transform: translateY(-4px); }
+.testi-stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+.testi-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: rgba(253,250,244,0.8);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+.testi-author { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(253,250,244,0.35); }
+.testi-city { font-size: 10px; color: rgba(253,250,244,0.25); margin-top: 2px; }
+
+/* ── CONTACT / CTA ── */
+.contact {
+  background: var(--cream);
+  text-align: center;
+}
+.contact-inner {
+  background: linear-gradient(145deg, var(--red-deep), var(--red));
+  border-radius: 32px;
+  padding: 80px 48px;
+  position: relative;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.contact-inner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 0%, rgba(201,146,42,0.15) 0%, transparent 60%);
+}
+.contact-inner::after {
+  content: 'ISHRA';
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 200px;
+  font-weight: 300;
+  letter-spacing: 20px;
+  color: rgba(253,250,244,0.03);
+  right: -40px; bottom: -50px;
+  line-height: 1;
+}
+.contact-orn { font-size: 20px; letter-spacing: 20px; color: rgba(253,250,244,0.2); margin-bottom: 20px; position: relative; }
+.contact-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 300;
+  color: var(--cream);
+  letter-spacing: 4px;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  position: relative; z-index: 1;
+}
+.contact-title em { font-style: italic; color: var(--cream-dark); }
+.contact-sub { font-size: 14px; color: rgba(253,250,244,0.5); margin-bottom: 40px; line-height: 1.9; position: relative; z-index: 1; }
+.contact-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+.cbtn-wa {
+  display: flex; align-items: center; gap: 10px;
+  background: #25d366;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.cbtn-wa:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(37,211,102,0.3); background: #1ab955; }
+.cbtn-ig {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(253,250,244,0.12);
+  color: var(--cream);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-decoration: none;
+  border: 1px solid rgba(253,250,244,0.2);
+  transition: all 0.3s;
+}
+.cbtn-ig:hover { border-color: rgba(253,250,244,0.6); background: rgba(253,250,244,0.18); transform: translateY(-3px); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--text);
+  padding: 60px 48px 36px;
+  color: rgba(253,250,244,0.4);
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; max-width: 1100px; margin-left: auto; margin-right: auto; }
+.footer-brand { }
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+  letter-spacing: 10px;
+  color: var(--cream);
+  margin-bottom: 10px;
+  display: block;
+}
+.footer-logo span { color: var(--cream-dark); }
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: rgba(253,250,244,0.35);
+  margin-bottom: 20px;
+}
+.footer-desc { font-size: 12px; line-height: 1.9; max-width: 280px; }
+.footer-col-title { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(253,250,244,0.5); margin-bottom: 18px; font-weight: 500; }
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13px; color: rgba(253,250,244,0.35); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 28px; border-top: 1px solid rgba(253,250,244,0.06); display: flex; align-items: center; justify-content: space-between; flex-wrap: gap; gap: 12px; }
+.footer-copy { font-size: 11px; }
+.footer-love { font-size: 11px; }
+.footer-love span { color: var(--red); }
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float {
+  position: fixed;
+  bottom: 32px; right: 32px;
+  width: 58px; height: 58px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+  z-index: 200;
+  text-decoration: none;
+  transition: all 0.3s;
+  animation: pulse-wa 2s ease infinite;
+}
+.wa-float:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(37,211,102,0.5); animation: none; }
+@keyframes pulse-wa { 0%, 100% { box-shadow: 0 8px 30px rgba(37,211,102,0.4); } 50% { box-shadow: 0 8px 50px rgba(37,211,102,0.6), 0 0 0 10px rgba(37,211,102,0.1); } }
+
+/* ── MOBILE NAV ── */
+.mobile-menu {
+  display: none;
+  position: fixed; inset: 0;
+  background: var(--red-deep);
+  z-index: 99;
+  flex-direction: column; align-items: center; justify-content: center;
+  gap: 32px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  letter-spacing: 6px;
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--gold); }
+.mobile-close {
+  position: absolute; top: 24px; right: 28px;
+  font-size: 28px; color: rgba(253,250,244,0.5);
+  cursor: pointer; transition: color 0.2s;
+}
+.mobile-close:hover { color: var(--cream); }
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  section { padding: 70px 24px; }
+  nav { padding: 16px 24px; }
+  nav.scrolled { padding: 12px 24px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .about-grid, .order-grid, .founders-grid { grid-template-columns: 1fr; gap: 40px; }
+  .collections-grid { grid-template-columns: 1fr 1fr; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .ig-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .contact-inner { padding: 52px 28px; }
+  .about-stats { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .collections-grid { grid-template-columns: 1fr; }
+  .hero-logo { letter-spacing: 12px; }
+  .hero-btns { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo"><span>I</span>SHR<span>A</span></a>
+  <div class="nav-links">
+    <a href="#collections">Collections</a>
+    <a href="#about">Our Story</a>
+    <a href="#order">How To Order</a>
+    <a href="#founders">Founders</a>
+    <a href="#contact" class="nav-cta">Shop Now</a>
+  </div>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" id="mobileClose">✕</span>
+  <a href="#collections" onclick="closeMobile()">Collections</a>
+  <a href="#about" onclick="closeMobile()">Our Story</a>
+  <a href="#order" onclick="closeMobile()">How To Order</a>
+  <a href="#founders" onclick="closeMobile()">Founders</a>
+  <a href="#contact" onclick="closeMobile()">Shop Now</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Delhi · Ethnic Wear · Since 2026</div>
+    <div class="hero-hindi">इश्रा</div>
+    <div class="hero-logo"><span>I</span>SHR<span>A</span></div>
+    <div class="hero-rule">
+      <div class="hr-line"></div>
+      <div class="hr-diamond"></div>
+      <div class="hr-line"></div>
+    </div>
+    <div class="hero-tagline">In Ishq with Ishra</div>
+    <div class="hero-sub">By Ishika & Shruti · Handpicked Ethnic Wear</div>
+    <div class="hero-btns">
+      <a href="#collections" class="btn-primary">Shop Collections</a>
+      <a href="#order" class="btn-outline">How to Order</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-text">Scroll</div>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item"><span>New Drops Every Week</span><div class="marquee-gem"></div></div>
+    <div class="marquee-item"><span>Kurtis · Coord Sets · Festive Drops</span><div class="marquee-gem"></div></div>
+    <div class="marquee-item"><span>Ships Pan India</span><div class="marquee-gem"></div></div>
+    <div class="marquee-item"><span>In Ishq with Ishra</span><div class="marquee-gem"></div></div>
+    <div class="marquee-item"><span>By Ishika & Shruti · Delhi</span><div class="marquee-gem"></div></div>
+    <div class="marquee-item"><span>Handpicked from Chandni Chowk</span><div class="marquee-gem"></div></div>
+    <div class="marquee-item"><span>New Drops Every Week</span><div class="marquee-gem"></div></div>
+    <div class="marquee-item"><span>Kurtis · Coord Sets · Festive Drops</span><div class="marquee-gem"></div></div>
+    <div class="marquee-item"><span>Ships Pan India</span><div class="marquee-gem"></div></div>
+    <div class="marquee-item"><span>In Ishq with Ishra</span><div class="marquee-gem"></div></div>
+    <div class="marquee-item"><span>By Ishika & Shruti · Delhi</span><div class="marquee-gem"></div></div>
+    <div class="marquee-item"><span>Handpicked from Chandni Chowk</span><div class="marquee-gem"></div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="section-eyebrow">Our Story</div>
+        <h2 class="section-title">Born from love,<br>stitched with <em>soul.</em></h2>
+        <p class="about-body">
+          ISHRA was born in the lanes of <strong>Chandni Chowk</strong> — from two best friends who spent hours picking the most beautiful ethnic pieces and dreaming of sharing them with the world.
+        </p>
+        <p class="about-body">
+          We are <strong>Ishika & Shruti</strong> — and we started ISHRA because we believe every woman deserves to feel rooted, radiant, and real in what she wears. Every piece in our collection is handpicked by us, personally. No shortcuts. No compromise.
+        </p>
+        <p class="about-body">
+          From printed kurtis to coord sets to festive drops — <strong>ISHRA is your ethnic wardrobe, curated with ishq. 💘</strong>
+        </p>
+        <div class="about-stats">
+          <div class="stat"><span class="stat-num">100%</span><div class="stat-label">Handpicked</div></div>
+          <div class="stat"><span class="stat-num">24h</span><div class="stat-label">Dispatch</div></div>
+          <div class="stat"><span class="stat-num">Pan</span><div class="stat-label">India Shipping</div></div>
+        </div>
+      </div>
+      <div class="about-visual reveal reveal-delay-2">
+        <div class="about-card-main">
+          <div class="acm-hindi">इश्रा</div>
+          <div class="acm-logo"><span>I</span>SHR<span>A</span></div>
+          <div class="acm-tagline">In Ishq with Ishra</div>
+        </div>
+        <div class="about-card-float">
+          <div class="acf-text">"Wore it and fell in love."</div>
+          <div class="acf-name">— Our First Customer 🌸</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTIONS -->
+<section class="collections" id="collections">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">What We Sell</div>
+      <h2 class="section-title">Our <em>Collections</em></h2>
+    </div>
+    <div class="collections-grid">
+      <div class="coll-card reveal reveal-delay-1">
+        <div class="coll-visual cv1">
+          <div class="coll-badge">Bestseller</div>
+          <div class="coll-icon">🥻</div>
+        </div>
+        <div class="coll-info">
+          <div class="coll-name">Printed Kurtis</div>
+          <div class="coll-desc">Free size printed kurtis in the softest fabrics — everyday ethnic wear you'll live in.</div>
+          <div class="coll-price"><div class="price">₹399 onwards</div><a href="#contact" class="coll-btn">Order Now →</a></div>
+        </div>
+      </div>
+      <div class="coll-card reveal reveal-delay-2">
+        <div class="coll-visual cv2">
+          <div class="coll-badge">New In</div>
+          <div class="coll-icon">👗</div>
+        </div>
+        <div class="coll-info">
+          <div class="coll-name">Coord Sets</div>
+          <div class="coll-desc">Kurti + pant coord sets that make getting dressed effortlessly beautiful.</div>
+          <div class="coll-price"><div class="price">₹699 onwards</div><a href="#contact" class="coll-btn">Order Now →</a></div>
+        </div>
+      </div>
+      <div class="coll-card reveal reveal-delay-3">
+        <div class="coll-visual cv3">
+          <div class="coll-badge">Trending</div>
+          <div class="coll-icon">✨</div>
+        </div>
+        <div class="coll-info">
+          <div class="coll-name">Sharara Sets</div>
+          <div class="coll-desc">Flowy sharara sets for occasions, festivals and every day you feel like twirling.</div>
+          <div class="coll-price"><div class="price">₹999 onwards</div><a href="#contact" class="coll-btn">Order Now →</a></div>
+        </div>
+      </div>
+      <div class="coll-card reveal reveal-delay-1">
+        <div class="coll-visual cv4">
+          <div class="coll-badge">Festive</div>
+          <div class="coll-icon">🪔</div>
+        </div>
+        <div class="coll-info">
+          <div class="coll-name">Festive Drops</div>
+          <div class="coll-desc">Special collections for Eid, Navratri, Diwali and every celebration that deserves a new outfit.</div>
+          <div class="coll-price"><div class="price">₹799 onwards</div><a href="#contact" class="coll-btn">Order Now →</a></div>
+        </div>
+      </div>
+      <div class="coll-card reveal reveal-delay-2">
+        <div class="coll-visual cv5">
+          <div class="coll-icon">🧣</div>
+        </div>
+        <div class="coll-info">
+          <div class="coll-name">Dupattas</div>
+          <div class="coll-desc">Printed and embroidered dupattas to complete any ethnic look with that finishing touch.</div>
+          <div class="coll-price"><div class="price">₹299 onwards</div><a href="#contact" class="coll-btn">Order Now →</a></div>
+        </div>
+      </div>
+      <div class="coll-card reveal reveal-delay-3">
+        <div class="coll-visual cv6">
+          <div class="coll-badge">Coming Soon</div>
+          <div class="coll-icon">🌸</div>
+        </div>
+        <div class="coll-info">
+          <div class="coll-name">Wedding Season</div>
+          <div class="coll-desc">Curated pieces for guests, functions and the whole shaadi season. Dropping soon!</div>
+          <div class="coll-price"><div class="price">Notify Me</div><a href="#contact" class="coll-btn">DM Us →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO ORDER -->
+<section class="order" id="order">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow">Easy Peasy</div>
+      <h2 class="section-title">How to <em>Order</em></h2>
+    </div>
+    <div class="order-grid">
+      <div class="order-steps reveal">
+        <div class="order-step">
+          <div class="os-num">01</div>
+          <div class="os-content">
+            <div class="os-title">Browse & Pick Your Favourite</div>
+            <div class="os-desc">Scroll through our Instagram @ishra.ethnic or WhatsApp catalogue and find the piece you're in ishq with 🌸</div>
+          </div>
+        </div>
+        <div class="order-step">
+          <div class="os-num">02</div>
+          <div class="os-content">
+            <div class="os-title">DM or WhatsApp Us</div>
+            <div class="os-desc">Tell us which piece you want and your size. We'll confirm availability and share all details instantly 💬</div>
+          </div>
+        </div>
+        <div class="order-step">
+          <div class="os-num">03</div>
+          <div class="os-content">
+            <div class="os-title">Pay via UPI</div>
+            <div class="os-desc">100% advance via UPI (PhonePe / GPay / Paytm). We'll send you a confirmation the moment payment is received 💳</div>
+          </div>
+        </div>
+        <div class="order-step">
+          <div class="os-num">04</div>
+          <div class="os-content">
+            <div class="os-title">We Pack with Love & Ship!</div>
+            <div class="os-desc">Your order is packed in our signature red potli with tissue & thank you card, and dispatched within 24 hours 🎀</div>
+          </div>
+        </div>
+      </div>
+      <div class="order-visual reveal reveal-delay-2">
+        <div class="ov-title">Everything you need to know 🌸</div>
+        <div class="ov-details">
+          <div class="ov-detail">
+            <div class="ovd-icon">🚚</div>
+            <div class="ovd-text"><strong>Shipping Pan India</strong> via Shiprocket / Delhivery. Tracking shared within 24 hours of dispatch.</div>
+          </div>
+          <div class="ov-detail">
+            <div class="ovd-icon">💰</div>
+            <div class="ovd-text"><strong>Shipping charges:</strong> ₹60–80 per order. Free shipping on orders above ₹1,500!</div>
+          </div>
+          <div class="ov-detail">
+            <div class="ovd-icon">📏</div>
+            <div class="ovd-text"><strong>Sizes:</strong> Most pieces are free size (fits M–XL). DM us for measurements before ordering.</div>
+          </div>
+          <div class="ov-detail">
+            <div class="ovd-icon">⏰</div>
+            <div class="ovd-text"><strong>Response time:</strong> We reply within 1 hour during 9 AM – 9 PM, Mon–Sat.</div>
+          </div>
+          <div class="ov-detail">
+            <div class="ovd-icon">💌</div>
+            <div class="ovd-text"><strong>Returns:</strong> Size exchange accepted within 3 days of delivery. Please check size guide before ordering!</div>
+          </div>
+        </div>
+        <a href="https://wa.me/919999999999" class="order-cta-btn">💬 Order on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section class="founders" id="founders">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom: 0;">
+      <div class="section-eyebrow" style="justify-content:center;">The Faces Behind ISHRA</div>
+      <h2 class="section-title" style="text-align:center;">Meet the <em>Founders</em></h2>
+    </div>
+    <div class="founders-grid">
+      <div class="founder-card reveal reveal-delay-1">
+        <div class="fc-top fc1-top">
+          <div class="fc-avatar">I</div>
+          <div class="fc-fname">Ishika</div>
+          <div class="fc-role">Co-Founder · ISHRA</div>
+        </div>
+        <div class="fc-body">
+          <div class="fc-quote">"Every piece I pick, I ask myself — would I wear this? If yes, it goes in."</div>
+          <div class="fc-text">The curator behind ISHRA's aesthetic eye. Ishika has an instinct for finding the most beautiful ethnic pieces in the lanes of Chandni Chowk — the ones that make you stop and say "yeh toh mera hai." 🌸</div>
+        </div>
+      </div>
+      <div class="founder-card reveal reveal-delay-2">
+        <div class="fc-top fc2-top">
+          <div class="fc-avatar">S</div>
+          <div class="fc-fname">Shruti</div>
+          <div class="fc-role">Co-Founder · ISHRA</div>
+        </div>
+        <div class="fc-body">
+          <div class="fc-quote">"ISHRA is our baby. We pour our whole selves into every single order."</div>
+          <div class="fc-text">The heart of ISHRA's customer experience. Shruti ensures every customer feels heard, every order is packed beautifully, and every person who buys from ISHRA feels like family. 💘</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="reviews">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-eyebrow">Customer Love</div>
+      <h2 class="section-title" style="text-align:center;">In Ishq with <span>ISHRA</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Omg the packaging alone made me cry 😭 The red potli was SO pretty and the kurti inside — literally obsessed. Already ordering again!"</div>
+        <div class="testi-author">Priya Sharma</div>
+        <div class="testi-city">Mumbai</div>
+      </div>
+      <div class="testi reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Ishika replied to my DM in 5 minutes at 11 PM 😂 That's when I knew this brand is special. The coord set is everything. 10/10!"</div>
+        <div class="testi-author">Aisha Khan</div>
+        <div class="testi-city">Lucknow</div>
+      </div>
+      <div class="testi reveal reveal-delay-3">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Ordered for Eid and it arrived 3 days early! Quality is SO much better than what I expected at this price. ISHRA is my new go-to. 💘"</div>
+        <div class="testi-author">Zara Ahmed</div>
+        <div class="testi-city">Delhi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="instagram" id="instagram">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow" style="justify-content:center;">Follow Our Journey</div>
+      <div class="ig-handle">@ishra.ethnic</div>
+      <p class="ig-follow-text">Follow us on Instagram for new drops, BTS, styling inspo & more 🌸</p>
+    </div>
+    <div class="ig-grid reveal">
+      <div class="ig-post ig1">Welcome to ISHRA 🌸</div>
+      <div class="ig-post ig2">New Kurti Drop ✨</div>
+      <div class="ig-post ig3">Coord Set 🥻</div>
+      <div class="ig-post ig4">Styling Inspo 💃</div>
+      <div class="ig-post ig5">Eid Drop 🌙</div>
+      <div class="ig-post ig6">Order Packed 📦</div>
+    </div>
+    <a href="https://instagram.com/ishra.ethnic" class="ig-btn reveal">
+      📸 Follow @ishra.ethnic
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-inner reveal">
+      <div class="contact-orn">◆ ◆ ◆</div>
+      <h2 class="contact-title">Ready to fall<br><em>In Ishq with Ishra?</em></h2>
+      <p class="contact-sub">DM us on Instagram or WhatsApp to browse our latest collection, check availability, and place your order. We reply within 1 hour! 🌸</p>
+      <div class="contact-btns">
+        <a href="https://wa.me/919999999999" class="cbtn-wa">💬 WhatsApp Us</a>
+        <a href="https://instagram.com/ishra.ethnic" class="cbtn-ig">📸 Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="footer-logo"><span>I</span>SHR<span>A</span></span>
+      <div class="footer-tagline">In Ishq with Ishra</div>
+      <div class="footer-desc">Handpicked ethnic wear by Ishika & Shruti, straight from the heart of Delhi. Kurtis, coord sets, festive drops — all made with love.</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#order">How to Order</a></li>
+        <li><a href="#founders">Founders</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact Us</div>
+      <ul class="footer-links">
+        <li><a href="https://instagram.com/ishra.ethnic">📸 @ishra.ethnic</a></li>
+        <li><a href="https://wa.me/919999999999">💬 WhatsApp</a></li>
+        <li><a href="#">📍 Delhi, India</a></li>
+        <li><a href="#">⏰ 9 AM – 9 PM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 ISHRA. All rights reserved.</div>
+    <div class="footer-love">Made with <span>♥</span> by Ishika & Shruti · Delhi</div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/919999999999" class="wa-float" title="Order on WhatsApp">💬</a>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0;
+let ringX = 0, ringY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  cursor.style.left = mouseX + 'px';
+  cursor.style.top = mouseY + 'px';
+});
+
+function animateRing() {
+  ringX += (mouseX - ringX) * 0.12;
+  ringY += (mouseY - ringY) * 0.12;
+  cursorRing.style.left = ringX + 'px';
+  cursorRing.style.top = ringY + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+    cursorRing.style.width = '50px';
+    cursorRing.style.height = '50px';
+    cursorRing.style.borderColor = 'rgba(155,28,28,0.7)';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+    cursorRing.style.width = '36px';
+    cursorRing.style.height = '36px';
+    cursorRing.style.borderColor = 'rgba(155,28,28,0.4)';
+  });
+});
+
+// Navbar scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+function closeMobile() { mobileMenu.classList.remove('open'); }
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
